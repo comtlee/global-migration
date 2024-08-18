@@ -1,13 +1,17 @@
 "use client"
 
 import AppInquiryForm from "@/components/templates/AppInquiryForm";
+import Service from "@/components/templates/service";
 
 type Props = {};
 
 const ContactUs = (props: Props) => {
   return (
-    <div className="contents">
-      <AppInquiryForm  />
+    <>
+      {/* <div>ContactUs Page</div> */}
+      <AppInquiryForm />
+      <Service />
+
       {/* <div className="common-page-visual-area contactus">
       <div className="txt-box">
         <span className="text-uppercase">{{ $t("common.contact-us") }}</span>
@@ -55,7 +59,7 @@ const ContactUs = (props: Props) => {
         </div>
       </div>
     </div> */}
-    </div>
+    </>
   );
 };
 

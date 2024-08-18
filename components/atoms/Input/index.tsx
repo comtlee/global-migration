@@ -1,39 +1,26 @@
-import React, { ChangeEvent, FormEvent, KeyboardEvent } from "react";
+import { ChangeEvent } from 'react';
+import classNames from 'classnames';
 
-interface InputProps {
-  type?: string;
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string;
   value: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  placeholder?: string;
-  disabled?: boolean;
-  maxLength?: number;
-  onInput?: (e: FormEvent<HTMLInputElement>) => void;
-  onKeyDown?: (e: KeyboardEvent<HTMLInputElement>) => void;
+  className?: string;
 }
 
 const Input = ({
-  type = "text",
-  id,
+  type = 'text',
   value,
   onChange,
-  placeholder,
-  disabled = false,
-  maxLength,
-  onInput,
-  onKeyDown,
+  className,
+  ...rest
 }: InputProps) => (
   <input
     type={type}
-    id={id}
     value={value}
     onChange={onChange}
-    placeholder={placeholder}
-    disabled={disabled}
-    maxLength={maxLength}
-    onInput={onInput}
-    onKeyDown={onKeyDown}
-    className="form-control"
+    className={classNames('form-control', className)}
+    {...rest}
   />
 );
 

@@ -136,172 +136,32 @@ input::-webkit-inner-spin-button {
           padding-left: 110px !important;
         }
       }
-      &.indonesia {
-        &:before {
-          position: absolute;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          content: "+ 62";
-          color: $color-242424;
-          height: calc(100% + 1px);
-          top: 0;
-        }
-        &:after {
-          position: absolute;
-          right: -24px;
-          content: "|";
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size: 1.61rem;
-          color: $color-242424 !important;
-          width: 10px;
-          height: calc(100% + 1px);
-          top: 0px;
-        }
-        & + .form-control {
-          padding-left: 110px !important;
-        }
+    }
+  }
+
+  &.input-type-phone {
+    .input-group__append {
+      background-image: url(https://image.smartscore.kr/club/icn/ic_delete_gray.svg);
+    }
+    .form-control {
+      padding-left: 60px !important;
+    }
+    .input-group__add {
+      cursor: auto;
+      z-index: 4;
+      width: 50px;
+      &:before {
+        content: "+ ";
+        display: block;
+        color: $color-727272;
       }
-      &.malaysia {
+      &.other {
         &:before {
-          position: absolute;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          content: "+ 60";
+          content: "+ ";
           color: $color-242424;
-          height: calc(100% + 1px);
-          top: 0;
-        }
-        &:after {
-          position: absolute;
-          right: -24px;
-          content: "|";
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size: 1.61rem;
-          color: $color-242424 !important;
-          width: 10px;
-          height: calc(100% + 1px);
-          top: 0px;
         }
         & + .form-control {
-          padding-left: 110px !important;
-        }
-      }
-      &.philippines {
-        &:before {
-          position: absolute;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          content: "+ 63";
-          color: $color-242424;
-          height: calc(100% + 1px);
-          top: 0;
-        }
-        &:after {
-          position: absolute;
-          right: -24px;
-          content: "|";
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size: 1.61rem;
-          color: $color-242424 !important;
-          width: 10px;
-          height: calc(100% + 1px);
-          top: 0px;
-        }
-        & + .form-control {
-          padding-left: 110px !important;
-        }
-      }
-      &.taiwan {
-        &:before {
-          position: absolute;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          content: "+ 886";
-          color: $color-242424;
-          height: calc(100% + 1px);
-          top: 0;
-        }
-        &:after {
-          position: absolute;
-          right: -24px;
-          content: "|";
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size: 1.61rem;
-          color: $color-242424 !important;
-          width: 10px;
-          height: calc(100% + 1px);
-          top: 0px;
-        }
-        & + .form-control {
-          padding-left: 110px !important;
-        }
-      }
-      &.singapore {
-        &:before {
-          position: absolute;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          content: "+ 65";
-          color: $color-242424;
-          height: calc(100% + 1px);
-          top: 0;
-        }
-        &:after {
-          position: absolute;
-          right: -24px;
-          content: "|";
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size: 1.61rem;
-          color: $color-242424 !important;
-          width: 10px;
-          height: calc(100% + 1px);
-          top: 0px;
-        }
-        & + .form-control {
-          padding-left: 110px !important;
-        }
-      }
-      &.vietnam {
-        &:before {
-          position: absolute;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          content: "+ 84";
-          color: $color-242424;
-          height: calc(100% + 1px);
-          top: 0;
-        }
-        &:after {
-          position: absolute;
-          right: -24px;
-          content: "|";
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size: 1.61rem;
-          color: $color-242424 !important;
-          width: 10px;
-          height: calc(100% + 1px);
-          top: 0px;
-        }
-        & + .form-control {
-          padding-left: 110px !important;
+          padding-left: 130px !important;
         }
       }
     }
@@ -464,16 +324,36 @@ input::-webkit-inner-spin-button {
   }
   &.row {
     display: flex;
-    align-items: center;
     .title {
       margin-bottom: 0;
-      color: $color-767676;
       margin-right: 8px;
     }
-    & + .form-group {
-      margin-top: 0;
+
+    &.title-left  {
+      flex-direction: row;
+      align-items: center;
     }
-    .contactus-box {
+
+    &.title-right {
+      flex-direction: row-reverse;
+      align-items: center;
+
+    }
+
+    &.title-top {
+      flex-direction: column;
+      .title {
+        margin-bottom: 10px;
+      }
+    }
+
+    &.title-bottom {
+      flex-direction: column-reverse;
+    }
+
+    & + .form-group{
+      margin-top:0;
+      margin-left: 16px;
     }
   }
   &.row-input-select {
@@ -496,7 +376,6 @@ input::-webkit-inner-spin-button {
     font-size: 1.4rem;
     font-weight: 500;
     color: $color-282828;
-    margin-bottom: 12px;
     .etc-p {
     }
     & + .radio-group {

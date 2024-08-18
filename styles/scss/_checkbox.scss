@@ -106,11 +106,11 @@
             }
         }
     }
-    .check-box{
-        label{
+    label.check-box{
             display: flex;
-            align-items: center;
             cursor: pointer;
+            font-size: 1.4rem;
+            
             .check-item:checked + .check-icon {
                 border-color: $color-347eff;
             }
@@ -130,6 +130,7 @@
                 background-color: $color-ffffff;
                 border: 1px solid $color-cccccc;
                 border-radius: 6px;
+                margin-right: 0.5rem;
                 .ic-check{
                     position: absolute;
                     z-index: 2;
@@ -147,7 +148,6 @@
                 font-size: 1.6rem;
                 color: $color-767676;
             }
-        }
     }
 }
 

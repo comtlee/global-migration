@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
            <div className="footer-wrap">
                <div className="footer-logo-box">
                    <Link href="" className="footer-logo">
-                        <img src="https://image.smartscore.kr/smartscore_gloabl/logo/smartscore_global_logo_black.svg"  alt="footer - service logo"/>
+                        <img src="https://image.smartscore.kr/smartscore_gloabl/logo/smartscore_global_logo_black.svg"  alt="footer - service logo" className="i-color-ffffff"/>
                    </Link>
                </div>
                <div className="footer-aside-box">
@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
                        {
                            FooterData.familySites.map((site, index) => {
                                return (
-                                   <li>
+                                   <li key={index}>
                                        <Link href={site.url}>{site.name}</Link>
                                    </li>
                                )

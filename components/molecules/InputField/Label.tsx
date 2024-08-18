@@ -1,4 +1,4 @@
-import LabelRequired from "@/components/atoms/Label/LabelRequired";
+import LabelRequired from '@/components/atoms/Label/LabelRequired';
 
 interface LabelProps {
   htmlFor: string;
@@ -6,8 +6,8 @@ interface LabelProps {
   required?: boolean;
 }
 
-const Label = ({ htmlFor, text, required = false } : LabelProps) => (
-  <label htmlFor={htmlFor}>
+const Label = ({ htmlFor, text, required = false }: LabelProps) => (
+  <label className='title' htmlFor={htmlFor}>
     {text}
     <LabelRequired required={required} />
   </label>

@@ -1,96 +1,60 @@
-'use client';
+import LANGUAGE from "@/type/language";
 
-import DirectionArrow, { Direction } from "@/components/atoms/Dropdown/directionArrow";
-import { useEffect, useState } from "react";
-
-const LANGUAGE = {
-    english:{
-        languageCode: "EN",
-        image:{
-            src:"https://image.smartscore.kr/smartscore_gloabl/icon/ic_en.png",
-            alt: "Flag of United State Of America",
-        }
-    },
-    vietnamese:{
-        languageCode: "VI",
-        image:{
-            src:"https://image.smartscore.kr/smartscore_gloabl/icon/ic_ti.png",
-            alt: "Flag of North Vietnam",
-        }
-    },
-    thai:{
-        languageCode: "TH",
-        image:{
-            src:"https://image.smartscore.kr/smartscore_gloabl/icon/ic_vn.png",
-            alt: "Flag of Thailand",
-        }
-    },
-    indonesian:{
-        languageCode: "ID",
-        image:{
-            src:"https://image.smartscore.kr/smartscore_gloabl/icon/ic_id.png",
-            alt: "Flag of Republic of Indonesia",
-        }
-    },
-    chinese:{
-        languageCode: "CN",
-        image:{
-            src:"https://image.smartscore.kr/smartscore_gloabl/icon/ic_cn.png",
-            alt: "Flag of China",
-        }
-    },
-    taiwanese:{
-        languageCode: "TW",
-        image:{
-            src:"https://image.smartscore.kr/smartscore_gloabl/icon/ic_tw.png",
-            alt: "Flag of Taiwan",
-        }
-    },
-} as const
-
-type LANGUAGE = typeof LANGUAGE[keyof typeof LANGUAGE];
-
-interface LanguageDropDownButtonProp {
-    language: LANGUAGE;
-    className?: string;
+export interface DropDownHolderProps<T> {
+    items: T[];
+    renderItem: (item: T) => React.ReactNode;
+    onSelect: (item: T) => void;
     style?: React.CSSProperties;
+    className?: string;
 }
 
-const LanguageDropDownButton: React.FC<LanguageDropDownButtonProp> = ({
-    language = LANGUAGE.english,
-    className,
+const DropDownHolder = <T extends {},>({
+    items,
+    renderItem,
+    onSelect,
     style,
-}) => {
-    const [isFocus, setFocus] = useState(false);
-    const [arrowDirection, setArrowDirection] = useState(Direction.Down)
-    const focusChange = () => {
-        if (isFocus) {
-            setFocus(false)
-        } else {
-            setFocus(true)
-        }
-    }
-    useEffect(() => {
-        if (isFocus) {
-            setArrowDirection(Direction.Up)
-        } else {
-            setArrowDirection(Direction.Down)
-        }
-    }, [isFocus])
+    className,
+}: DropDownHolderProps<T>) => {
+    return (<>
+        <div className={className} style={style}>
+            {items.map((item, index) => (
+                <div style={{ width: "100%" }} key={index} onClick={() => onSelect(item)}>
+                    {renderItem(item)}
+                </div>
+            ))}
+        </div>
+    </>)
+}
+
+export interface CountryDropDownProps {
+    language: LANGUAGE;
+    isSelected: boolean;
+}
+
+const CountryDropDownItem = ({
+    language,
+    isSelected,
+}: CountryDropDownProps) => {
     return (
-        <div
-            className={className}
-            style={style}
-            onClick={focusChange}
-            onBlur={() => { setFocus(false) }}
-        >
-            <img className={"wh-18"} src={language.image.src} alt={language.image.alt}/>
+        <div className={"item"}>
+            <img className={"wh-18"} src={language.image.src} alt={language.image.alt} />
             <div className={"mr-10"} />
-            <span>{language.languageCode}</span>
-            <div className={"ml-10"} />
-            <DirectionArrow className={"wh-18"} direction={arrowDirection} />
+            <span>{language.native}</span>
+            {isSelected && <img className="wh-16 ml-at" src="https://image.smartscore.kr/smartscore_gloabl/icon/ic_checkbox_selected_lang.svg" />}
         </div>
     )
 }
 
-export { LanguageDropDownButton, LANGUAGE }
+export interface PlainDropDownProps {
+    text: string;
+}
+
+const PlainDropDownItem = ({
+    text,
+}: PlainDropDownProps) => {
+    return (<>
+        <li >{text}</li>
+    </>)
+}
+
+export { DropDownHolder, CountryDropDownItem, PlainDropDownItem }

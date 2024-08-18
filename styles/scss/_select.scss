@@ -1,27 +1,33 @@
-
-
-.select-group{
+.select-group {
   position: relative;
-  & + .select-group{
+  & + .select-group {
     margin-left: 8px;
   }
-  &.select-type-default{
-    .select-group__append{background-image: url(https://image.smartscore.kr/club/icn/ic_arrow_line_down.svg);}
+  &.select-type-default {
+    .select-group__append {
+      background-image: url(https://image.smartscore.kr/club/icn/ic_arrow_line_down.svg);
+    }
   }
-  &.select-type-search{
-    .select-group__add{background-image: url(https://image.smartscore.kr/club/icn/ic_search.svg);}
-    .select-group__append{background-image: url(https://image.smartscore.kr/club/icn/ic_delete_gray.svg);}
-    .form-control{
+  &.select-type-search {
+    .select-group__add {
+      background-image: url(https://image.smartscore.kr/club/icn/ic_search.svg);
+    }
+    .select-group__append {
+      background-image: url(https://image.smartscore.kr/club/icn/ic_delete_gray.svg);
+    }
+    .form-control {
       padding-left: 40px;
     }
   }
-  &.select-type-checkbox{
-    .select-group__append{background-image: url(https://image.smartscore.kr/club/icn/ic_arrow_line_down.svg);}
-    .select-group-dropwon{
+  &.select-type-checkbox {
+    .select-group__append {
+      background-image: url(https://image.smartscore.kr/club/icn/ic_arrow_line_down.svg);
+    }
+    .select-group-dropwon {
       flex-direction: column;
     }
   }
-  .form-control{
+  .form-control {
     //input
     width: 100%;
     height: 100%;
@@ -30,18 +36,17 @@
     color: $color-767676;
     border: 1px solid $color-cccccc;
     border-radius: 8px;
-    transition: all .3s ease-in-out;
-    background-color:$color-ffffff;
-    &:focus{
+    transition: all 0.3s ease-in-out;
+    background-color: $color-ffffff;
+    &:focus {
       border-color: $color-347eff;
     }
-    &:disabled, &:read-only{
-      background-color:$color-f6f6f6;
+    &:disabled,
+    &:read-only {
+      background-color: $color-f6f6f6;
     }
-
-
   }
-  &__append{
+  &__append {
     position: absolute;
     top: 0;
     right: 12px;
@@ -54,17 +59,17 @@
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
-    &.time{
+    &.time {
       top: 13px;
-      width:33px;
+      width: 33px;
       color: $color-71a5ff;
-      font-size:1.4rem;
+      font-size: 1.4rem;
     }
   }
-  &__add{
+  &__add {
     position: absolute;
     top: 0;
-    left:8px;
+    left: 8px;
     width: 24px;
     height: 100%;
     display: flex;
@@ -74,30 +79,27 @@
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
-    &.time{
+    &.time {
       top: 13px;
-      width:33px;
+      width: 33px;
       color: $color-71a5ff;
-      font-size:1.4rem;
+      font-size: 1.4rem;
     }
   }
   // select title
-  .title{
+  .title {
     display: block;
-    font-size:1.4rem;
+    font-size: 1.4rem;
     font-weight: 500;
     color: $color-282828;
-    margin-bottom:12px;
+    margin-bottom: 12px;
     & + .radio-group {
       margin-top: -4px;
     }
   }
 }
 
-
-
-
-.select-group-dropwon{
+.select-group-dropwon {
   position: absolute;
   top: calc(100% + 5px);
   left: 0;
@@ -109,14 +111,14 @@
   overflow-x: hidden;
   box-shadow: 0 2px 8px 0 rgba(9, 52, 139, 0.32);
   z-index: 10;
-  li{
+  li {
     padding: 8px 11px;
     //border-top: 1px solid #f2f2f2;
     line-height: 1.38;
     font-size: 1.4rem;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    &:hover{
+    &:hover {
       background-color: $color-f2f7ff;
     }
   }

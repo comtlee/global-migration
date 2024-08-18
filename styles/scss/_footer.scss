@@ -2,10 +2,24 @@
   position: relative;
   background: $color-242424;
   padding: 60px 24px;
+  .footer-aside-box{
+    color: #ffffff;
+  }
+  .footer-family{
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-top: 10px;
+    color: #ffffff;
+    a{
+      color: #ffffff;
+    }
+  }
 
   &.product{padding-bottom: 120px;}
   &.digital{padding-bottom: 120px;}
   &.home{padding-bottom: 120px;}
+
 
   .footer-lang-select-group {
     .select-group {
